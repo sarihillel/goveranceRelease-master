@@ -1,0 +1,45 @@
+﻿@import "filesUrl.scss";
+
+.saveIcon {
+    content: url(#{$wizard_saveIcon});
+}
+
+.exitIcon {
+    content: url(#{$wizard_exitIcon});
+}
+
+.plusIcon {
+    content: url(#{$wizard_plusIcon});
+}
+
+.deleteIcon {
+    content: url(#{$wizard_deleteIcon});
+}
+
+.commentIcon {
+    content: url(#{$commentIcon});
+}
+
+.re-send-email {
+    ul.ui-select-choices {
+        opacity: 1 !important;
+    }
+}
+
+
+.form .ng-invalid.ng-touched, .form.ng-submitted .ng-invalid {
+    border-color: #FA787E;
+
+    .ui-select-toggle {
+        border-color: #FA787E;
+    }
+
+    & + .error {
+        color: #FA787E;
+    }
+}
+
+.message-valid {
+    float: left;
+    font-size: 12pt;
+}

@@ -1,0 +1,39 @@
+﻿<!-- main container starts here -->
+<div class="_container_padding">
+    <div class="row _no_margin">
+        <h1 class="_heading_text">Create your release governance framework</h1>
+        <h4 class="_heading_text">In just a few steps and communicate to all stakeholders!</h4>
+    </div>
+</div>
+<div class="_container_white gicHome">
+    <div class="row _no_margin">
+        <div class="col-lg-2 col-md-2 col-sm-12 col-xs-12 col-md-offset-1 col-lg-offset-1">
+        </div>
+        <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12" ui-sref="wizard.releaseInfo({u_release_id:0})">
+            <img class="addIcon" height="64"/>
+            <h4 class="_tabs_text">Create New Release</h4>
+        </div>
+        <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
+            <img class="searcIcon" height="64"/>
+            <img class="_search_file" height="64"/>
+            <h4 class="_tabs_text">Search Exisiting Release</h4>
+
+            <span class="inputAutoComplete">
+                <ui-select ng-model="vm.releaseSelected"
+                           ng-change="vm.goToRelease($select.selected)"
+                           theme="bootstrap"
+                           reset-search-input="false"
+                           class="_form-control" 
+                          >
+                    <ui-select-match placeholder="Please type account or release name..">{{$select.selected.u_account_name+', '+$select.selected.u_release_name +', ' +$select.selected.u_type_name + ' / '+$select.selected.u_release_status }}</ui-select-match>
+                    <ui-select-choices repeat="item in vm.listSearch track by $index"
+                                       refresh="vm.getGoveranceReleases($select.search)"
+                                       refresh-delay="0">
+                        <div ng-bind-html="item.u_account_name+', '+item.u_release_name +', ' +item.u_type_name + ' / '+item.u_release_status | highlight: $select.search"></div>
+                    </ui-select-choices>
+                </ui-select>
+            </span>
+        </div>
+    </div>
+</div>
+<!-- main container ends here -->

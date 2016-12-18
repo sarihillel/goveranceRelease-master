@@ -1,0 +1,49 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title ng-bind="titleBody"></title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <base href="/app/">
+    <link href="../Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="../Content/ui-bootstrap-csp.css" rel="stylesheet" />
+    <link href="../Content/style.css" rel="stylesheet" />
+    <link href="../Content/justified-nav.css" rel="stylesheet" />
+
+    <link href="index.css" rel="stylesheet" />
+    <link href="pages.home.css" rel="stylesheet" />
+    <link href="pages.wizard.css" rel="stylesheet" />
+    <link href="pages.wizard.stakholderDef.css" rel="stylesheet" />
+</head>
+<body ng-class="{'_cover': !homePage, '_cover2': homePage}">
+    <!-- Header Starts -->
+    <header class="row _header_bar" ng-class="{'navbar-fixed-top': homePage }">
+        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 _governance" ui-sref="home"> <span class="pull-right _header_text"></span> </div>
+        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6" ui-sref="home"> <img src="../images/logo.png" class="_logo"> </div>
+        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3"> <span class="_header_text">&nbsp;Welcome  <span ng-bind="userName"></span></span> </div>
+    </header>
+    <!-- Header Ends -->
+
+    <ui-view></ui-view>
+
+    <script src="../scripts/jquery-1.9.1.js"></script>
+    <script src="../scripts/bootstrap.js"></script>
+    <script src="../scripts/angular.js"></script>
+    <script src="../scripts/angular-ui/ui-bootstrap-tpls.js"></script>
+    <script src="../scripts/angular-ui-router.js"></script>
+    <script src="../scripts/angular-animate.js"></script>
+    <script src="../scripts/angular-sanitize.js"></script>
+    <script src="../scripts/lodash.js"></script>
+    <script src="../bower_components/angular-filter/dist/angular-filter.js"></script>
+    <script src="../bower_components/angularjs-toaster/toaster.js"></script>
+
+    <script src="app.mdl.js"></script>
+    <script src="app.route.js"></script>
+    <script src="pages.home.ctrl.js"></script>
+    <script src="pages.wizard.ctrl.js"></script>
+    <script src="pages.wizard.releazeInfo.ctrl.js"></script>
+    <script src="pages.wizard.stakholderDef.ctrl.js"></script>
+    <script src="services.apiService.srv.js"></script>
+    <script src="services.dataList.srv.js"></script>
+</body>
+</html>

@@ -1,0 +1,24 @@
+﻿{
+  "list": [
+    {
+      "sys_id": "7",
+      "u_stream_name": "Development",
+      "u_stream_order": 2
+    },
+    {
+      "sys_id": "9",
+      "u_stream_name": "Scoping",
+      "u_stream_order": 3
+    },
+    {
+      "sys_id": "11",
+      "u_stream_name": "Other",
+      "u_stream_order":4
+    },
+    {
+      "sys_id": "13",
+      "u_stream_name": "Other 3",
+      "u_stream_order": 5
+    }
+  ]
+}

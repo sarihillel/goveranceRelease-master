@@ -1,0 +1,16 @@
+﻿{
+  "list": [
+    {
+      "sys_id": "3",
+      "u_role_name": "Acceptance Test Manage"
+    },
+    {
+      "sys_id": "1",
+      "u_role_name": "General Manager"
+    },
+    {
+      "sys_id": "2",
+      "u_role_name": "Program Manager"
+    }
+  ]
+}

@@ -1,0 +1,12 @@
+﻿{
+  "list": [
+    {
+      "sys_id": "1",
+      "u_frequency_name": "Quaterly"
+    },
+    {
+      "sys_id": "2",
+      "u_frequency_name": "Annually"
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+﻿@import "filesUrl.scss";
+
+div.gicHome {
+
+    .addIcon {
+        content: url(#{$home_addIcon});
+    }
+
+    .searcIcon {
+        content: url(#{$home_searchIcon});
+    }
+
+   
+}

@@ -1,0 +1,44 @@
+﻿{
+  "list": [
+    {
+      "sys_id": "1",
+      "u_account_dms": "1",
+      "u_account_name": "Telefonica Peru",
+      "u_release_dms": "1",
+      "u_release_name": "OCX 1610",
+      "u_release_type": "1",
+      "u_type_name": "Transformation",
+      "u_release_status": "Draft"
+    },
+    {
+      "sys_id": "2",
+      "u_account_dms": "2",
+      "u_account_name": "TEF",
+      "u_release_dms": "5",
+      "u_release_name": "Phase 2",
+      "u_release_type": "1",
+      "u_type_name": "Transformation",
+      "u_release_status": "Published"
+    },
+    {
+      "sys_id": "3",
+      "u_account_dms": "4",
+      "u_account_name": "ASTRO",
+      "u_release_dms": "3",
+      "u_release_name": "Enterprise MVS",
+      "u_release_type": "2",
+      "u_type_name": "Ongoing CRs",
+      "u_release_status": "Published"
+    },
+    {
+      "sys_id": "4",
+      "u_account_dms": "5",
+      "u_account_name": "SARI HILEL",
+      "u_release_dms": "4",
+      "u_release_name": "Bill Pay",
+      "u_release_type": "3",
+      "u_type_name": "Lead SI",
+      "u_release_status": "Published"
+    }
+  ]
+}

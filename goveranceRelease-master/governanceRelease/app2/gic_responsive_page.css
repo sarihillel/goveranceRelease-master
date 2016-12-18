@@ -1,0 +1,9 @@
+﻿.timingDiv{
+    display:none;
+}
+
+body>table,body>table>tbody,body>table>tbody>tr:first-child ,.cms_layout_outer_container,.cms_layout_table ,.drop-zone-content{
+    height: 100%;
+}
+
+   

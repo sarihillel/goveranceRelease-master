@@ -1,0 +1,47 @@
+﻿$env: 'local';
+
+$svg-url: "../gicSvg/";
+$images-url: "../gicImages/";
+$font-face-SourceSansPro-Regular: '../fonts/source-sans-pro/SourceSansPro-Regular.ttf';
+$font-face-SourceSansPro-ExtraLight: '../fonts/source-sans-pro/SourceSansPro-ExtraLight.ttf';
+$font-face-SourceSansPro-Light: '../fonts/source-sans-pro/SourceSansPro-Light.ttf';
+
+@if ($env == 'snow') {
+    $svg-url: "";
+    $images-url: "";
+    $font-face-SourceSansPro-Regular: '/sys_attachment.do?sys_id=7224d7f96f4be2009431be4dbb3ee4d5';
+    $font-face-SourceSansPro-ExtraLight: '/sys_attachment.do?sys_id=942753f96f4be2009431be4dbb3ee424';
+    $font-face-SourceSansPro-Light: '/sys_attachment.do?sys_id=2227d73d6f4be2009431be4dbb3ee4cc';
+}
+
+$home_addIcon: $svg-url+ "gic_add_file_home.svg";
+$home_searchIcon: $svg-url+ "gic_search_file_home.svg";
+$release_info_circle_Icon: $svg-url+ "gic_add_file.svg";
+$release_info_circle_active_Icon: $svg-url+ "gic_add_file_active.svg";
+$stakeholder_circle_Icon: $svg-url+ "gic_person.svg";
+$stakeholder_circle_active_Icon: $svg-url+ "gic_person_active.svg";
+$reports_circle: $svg-url+ "gic_reports.svg";
+$reports_circle_active: $svg-url+ "gic_reports_active.svg";
+$date_circle: $svg-url+ "gic_date.svg";
+$date_circle_active: $svg-url+ "gic_calendar.svg";
+$preview_circle: $svg-url+ "gic_preview.svg";
+$preview_circle_active: $svg-url+ "gic_preview_active.svg";
+$process_bar: $svg-url+ "gic_bar.svg";
+$add_user: $svg-url+ "gic_add_user.svg";
+$commentIcon: $svg-url+ "gic_comment.svg";
+$groupmanIcon: $svg-url+ "gic_groupman.svg";
+$one_manIcon: $svg-url+ "gic_one_man.svg";
+$editIcon: $svg-url+ "gic_edit.svg";
+$preview_blueIcon: $svg-url+ "gic_preview_blue.svg";
+$page_editIcon: $svg-url+ "gic_page_edit.svg";
+$reciveIcon: $svg-url+ "gic_recive.svg";
+
+$wizard_saveIcon: $svg-url+ "gic_save.svg";
+$wizard_exitIcon: $svg-url+ "gic_exit.svg";
+$wizard_plusIcon: $svg-url+ "gic_plus.svg";
+$wizard_deleteIcon: $svg-url+ "gic_delete.svg";
+
+$index_logoIcon: $images-url+ "gic_logo.png";
+$cover_image: $images-url+ "gic_cover.jpg";
+$cover2_image: $images-url+ "gic_cover2.jpg";
+$governance_image: $images-url+ "gic_governance.png";

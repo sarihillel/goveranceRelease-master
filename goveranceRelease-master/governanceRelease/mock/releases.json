@@ -1,0 +1,29 @@
+﻿{
+  "list": [
+    {
+      "sys_id": "1",
+      "u_release_dms": "OCX 1610",
+       "u_account_dms": "1"
+    },
+    {
+      "sys_id": "2",
+      "u_release_dms": "Phase 1.5",
+      "u_account_dms": "1"
+    },
+    {
+      "sys_id": "3",
+      "u_release_dms": "Enterprise MVS",
+      "u_account_dms": "2"
+    },
+    {
+      "sys_id": "4",
+      "u_release_dms": "Bill Pay",
+      "u_account_dms": "3"
+    },
+     {
+      "sys_id": "5",
+      "u_release_dms": "Phase 2",
+      "u_account_dms": "2"
+    }
+  ]
+}

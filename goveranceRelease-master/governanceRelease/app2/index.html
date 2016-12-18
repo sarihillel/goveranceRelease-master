@@ -1,0 +1,76 @@
+﻿<!DOCTYPE html>
+<html>
+<!--<html ng-app="gicApp">-->
+<head>
+    <title></title>
+    <!--<meta name="viewport" content="width=device-width, initial-scale=1" />-->
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/angularjs-toaster/2.1.0/toaster.css" rel="stylesheet" />
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-select/0.20.0/select.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2/3.4.5/select2.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/selectize.js/0.8.5/css/selectize.default.css">
+    
+    <base href="/app2/">
+    <!--<link href="../Content/ui-bootstrap-csp.css" rel="stylesheet" />-->
+    <link href="gic_responsive_page.css" rel="stylesheet" />
+    <link href="gic_style.css" rel="stylesheet" />
+    <link href="gic_directives_gic-modal.css" rel="stylesheet" />
+    <link href="gic_directives_gic-wizard.css" rel="stylesheet" />
+
+    <link href="gic_pages_home.css" rel="stylesheet" />
+    <link href="gic_pages_wizard_base.css" rel="stylesheet" />
+    <link href="gic_pages_wizard_releaseInfo.css" rel="stylesheet" />
+    <link href="gic_pages_wizard_preview.css" rel="stylesheet" />
+    <link href="gic_pages_wizard_meetings.css" rel="stylesheet" />
+    <link href="gic_pages_wizard_reports.css" rel="stylesheet" />
+    <link href="gic_pages_wizard_stakholder.css" rel="stylesheet" />
+</head>
+<body>
+    <span id="gicApp">
+        <!-- Header Starts -->
+        <header class="row _header_bar" ng-class="{'navbar-fixed-top': homePage }">
+            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 _governance" ui-sref="home"> <span class="pull-right _header_text"></span> </div>
+            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6" ui-sref="home"> <img class="_logo logoIcon"> </div>
+            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3"> <span class="_header_text">&#32;Welcome  <span ng-bind="userName"></span></span> </div>
+        </header>
+        <!-- Header Ends -->
+        <toaster-container></toaster-container>
+        <ui-view></ui-view>
+    </span>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.8/angular.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/2.2.0/ui-bootstrap-tpls.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.3.2/angular-ui-router.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.8/angular-animate.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.8/angular-sanitize.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.16.6/lodash.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-filter/0.5.11/angular-filter.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angularjs-toaster/2.1.0/toaster.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-select/0.20.0/select.js"></script>
+
+    <script src="gic_module.js"></script>
+    <script src="gic_route.js"></script>
+
+    <script src="gic_services_gicApi.js"></script>
+    <script src="gic_services_gicDataList.js"></script>
+    <script src="gic_services_gicReleaseData.js"></script>
+
+    <script src="gic_directives_gic-modal.js"></script>
+    <script src="gic_directives_gic-include-template.js"></script>
+    <script src="gic_directives_gic-wizard.js"></script>
+
+    <script src="gic_pages_home_controller.js"></script>
+    <script src="gic_pages_wizard_base_controller.js"></script>
+    <script src="gic_pages_wizard_preview_controller.js"></script>
+    <script src="gic_pages_wizard_meetings_controller.js"></script>
+    <script src="gic_pages_wizard_reports_controller.js"></script>
+    <script src="gic_pages_wizard_realeseInfo_controller.js"></script>
+    <script src="gic_pages_wizard_stakeholder_controller.js"></script>
+
+
+</body>
+</html>
+
+

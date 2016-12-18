@@ -1,0 +1,29 @@
+﻿<!-- main container starts here -->
+<gic-wizard steps="wizardVm.steps" 
+            transparent="previewPage"
+            top-buttons="wizardVm.topButtons"
+            buttons="wizardVm.buttons"
+            api-events="wizardVm.stepsEvents"
+            ></gic-wizard>
+<!-- main container ends here -->
+
+
+<script type="text/ng-template" id="gic-select-re-send-template.html">
+    <div class="row _no_margin_right_left form-group re-send-email" >
+        <div class="col-lg-12 col-md-12">
+            <label class="_label">Please Select Stakeholders:</label>
+            <ui-select
+                       ng-model="modalScope.stakeholdersToSend"
+                       theme="bootstrap"
+                       reset-search-input="false"
+                       class="inputAutoComplete"
+                       required=""
+                       multiple="">
+                <ui-select-match placeholder="Enter role name name..">{{$item.u_role_name}}</ui-select-match>
+                <ui-select-choices repeat="item in modalScope.stakeholders | filter: $select.search" >
+                    <div ng-bind-html="item.u_role_name  | highlight: $select.search"></div>
+                </ui-select-choices>
+            </ui-select>
+        </div>
+    </div>
+</script>

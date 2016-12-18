@@ -1,0 +1,24 @@
+﻿{
+  "list": [
+    {
+      "sys_id": "1",
+      "u_account_name": "Telefonica Peru"
+    },
+    {
+      "sys_id": "2",
+      "u_account_name": "TEF"
+    },
+    {
+      "sys_id": "3",
+      "u_account_name": "ASTRO"
+    },
+    {
+      "sys_id": "4",
+      "u_account_name": "VIVO BRAZIL"
+    },
+     {
+      "sys_id": "5",
+      "u_account_name": "SARI HILEL"
+    }
+  ]
+}

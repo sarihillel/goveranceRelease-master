@@ -1,0 +1,144 @@
+﻿<div class="gicWizardProposedReports ">
+    <div class="panel panel-default _bg_color row">
+        <table class="table table-fixed">
+            <thead>
+                <tr>
+                    <th class="col-lg-2 col-md-2 col-xs-2">Report Name</th>
+                    <th class="col-lg-1 col-md-1 col-xs-1">Is Required?</th>
+                    <th class="col-lg-2 col-md-2 col-xs-2">Report Description</th>
+                    <th class="col-lg-1 col-md-1 col-xs-1">Frequency</th>
+                    <th class="col-lg-1 col-md-1 col-xs-1">Project Phase</th>
+                    <th class="col-lg-1 col-md-1 col-xs-1">Owner</th>
+                    <th class="col-lg-2 col-md-2 col-xs-2">Recipients</th>
+                    <th class="col-lg-1 col-md-1 col-xs-1">Template</th>
+                    <th class="col-lg-1 col-md-1 col-xs-1">Comments</th>
+                </tr>
+            </thead>
+            <tbody class="no-float" ng-repeat="(streamName,reportsList) in  vm.data.streamList track by $index ">
+                <tr>
+                    <td class="col-lg-12 col-md-12 col-xs-12 _align_left" ng-class="{'border-top': $index>0}" align="left"><b>{{::streamName}}:</b></td>
+                </tr>
+                <tr ng-repeat-start="report in reportsList  track by $index">
+                    <td class="col-lg-2 col-md-2 col-xs-2">
+                        <textarea class="form-control" required="" ng-model="report.u_report_name" ng-disabled="wizardVm.isPublished"></textarea>
+                    </td>
+                    <td class="col-lg-1 col-md-1 col-xs-1">
+                        <select class="form-control" required=""
+                                ng-model="report.u_is_required"
+                                ng-disabled="wizardVm.isPublished"
+                                ng-options="key as value for (key , value) in  vm.isRequiredOptions">
+                        </select>
+                    </td>
+                    <td class="col-lg-2 col-md-2 col-xs-2">
+                        <textarea class="form-control" required="" 
+                                  ng-model="report.u_description" 
+                                  ng-disabled="wizardVm.isPublished"></textarea>
+                    </td>
+                    <td class="col-lg-1 col-md-1 col-xs-1">
+                        <select class="form-control"
+                                ng-model="report.u_frequency"
+                                ng-change="report.u_frequncy_name=report.u_frequency?vm.data.frequenciesOptions[report.u_frequency]:''"
+                                required=""
+                                ng-disabled="wizardVm.isPublished"
+                                ng-options="key as value for (key , value) in  vm.data.frequenciesOptions">
+                            <!--<option value="">Select Frequency</option>-->
+                        </select>
+                    </td>
+                    <td class="col-lg-1 col-md-1 col-xs-1">
+                        <select class="form-control"
+                                ng-model="report.u_project_phase"
+                                ng-change="report.u_project_phase_name=report.u_frequency?vm.data.projectPhasesOptions[report.u_project_phase]:''"
+                                required=""
+                                ng-disabled="wizardVm.isPublished"
+                                ng-options="key as value for (key , value) in  vm.data.projectPhasesOptions">
+                            <!--<option value="">Select Project Phase</option>-->
+                        </select>
+                    </td>
+                    <td class="col-lg-1 col-md-1 col-xs-1">
+                        <ui-select ng-model="report.u_report_owner_temp"
+                                   theme="bootstrap"
+                                   reset-search-input="false"
+                                   class="inputAutoComplete _people_img"
+                                   required=""
+                                   ng-disabled="wizardVm.isPublished">
+                            <ui-select-match ng-attr-title="{{$select.selected.name}}" >{{$select.selected.name}}</ui-select-match>
+                            <ui-select-choices repeat="item.sys_id as item in vm.stakeholdersOwnerSearch track by $index" 
+                                               refresh-delay="0" placeholder="Enter user name.." >
+                                <div  ng-init="$select.activeIndex=item.sys_id==report.u_report_owner_temp?$index:$select.activeIndex" 
+                                     ng-bind-html="item.name  | highlight: $select.search || $select.selected.name"></div>
+                            </ui-select-choices>
+                        </ui-select>
+                    </td>
+                    <td class="col-lg-2 col-md-2 col-xs-2">
+                       
+                        <ui-select ng-model="report.u_report_recipients_temp"
+                                   theme="bootstrap"
+                                   reset-search-input="false"
+                                   class="inputAutoComplete _people_img"
+                                   required=""
+                                   multiple=""
+                                   ng-disabled="wizardVm.isPublished">
+                            <ui-select-match placeholder="Enter user name.." ng-attr-title="{{$item.name}}">{{$item.name}}</ui-select-match>
+                            <ui-select-choices repeat="item.sys_id as item in vm.stakeholdersRecipientSearch track by $index"
+                                               refresh-delay="0">
+                                <div ng-bind-html="item.name | highlight: $select.search"></div>
+                            </ui-select-choices>
+                        </ui-select>
+                    </td>
+                    <td class="col-lg-1 col-md-1 col-xs-1">
+                        <a href="javascript:;" ng-href="{{report.u_template}}" target="_blank">Preview</a>
+                    </td>
+                    <td class="col-lg-1 col-md-1 col-xs-1 div_popup">
+                        <div class="col-xs-6">
+                            <a href="javascript:;" class="_popup" popover-placement="bottom" popover-trigger="'outsideClick'" uib-popover-template="'gic-comment-template.html'">
+                                <img class="commentIcon" width="35" />
+                            </a>
+                        </div>
+                        <div class="col-xs-6">
+                            <img class="deleteIcon del_img dd" ng-show="!report.u_proposed_report &amp;&amp; !wizardVm.isPublished" height="28" ng-click="vm.removeReport(report)" />
+                        </div>
+                    </td>
+                </tr>
+                <tr ng-repeat-end="">
+                    <td class="col-lg-12 col-md-12 col-xs-12"></td>
+                </tr>
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td class="col-lg-2 col-md-2 col-xs-2">
+                        <a href="javascript:;" class="pull-left _color" ng-show="!wizardVm.isPublished">
+                            <img class="plusIcon _img" height="16" />
+                            <gic-modal options="::vm.addModalOptions">Add</gic-modal>
+                        </a>
+                    </td>
+                    <td class="col-lg-7 col-md-7 col-xs-7">&#32;</td>
+                    <td class="col-lg-3 col-md-3 col-xs-3 _no_padding"></td>
+                </tr>
+            </tfoot>
+        </table>
+    </div>
+</div>
+
+<script type="text/ng-template" id="gic-comment-template.html">
+    <div id="popover_content_wrapper">
+        <textarea rows="4" class="form-control"
+                  style="width:auto !important;"
+                  ng-model="report.u_comments"
+                  ng-disabled="wizardVm.isPublished"></textarea>
+        <!--<a href="javascript:;" class="_save">Save</a>-->
+    </div>
+</script>
+
+<script type="text/ng-template" id="gic-select-stream-template.html">
+    <div class="row _no_margin_right_left form-group" ng-form="form">
+        <div class="col-lg-12 col-md-12">
+            <label class="_label">Please Select a Stream:</label>
+            <select class="form-control"
+                    required=""
+                    ng-model="modalScope.stream"
+                    ng-options="obj.u_stream_name for obj in  modalScope.streams">
+                <option value="">Please Select a Stream</option>
+            </select>
+        </div>
+    </div>
+</script>

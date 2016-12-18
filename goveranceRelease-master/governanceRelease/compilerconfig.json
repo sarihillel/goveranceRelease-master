@@ -1,0 +1,46 @@
+﻿[
+  {
+    "outputFile": "app2/filesUrl.css",
+    "inputFile": "app2/filesUrl.scss"
+  },
+  {
+    "outputFile": "app2/gic_pages_wizard_base.css",
+    "inputFile": "app2/gic_pages_wizard_base.scss"
+  },
+  {
+    "outputFile": "app2/gic_pages_wizard_preview.css",
+    "inputFile": "app2/gic_pages_wizard_preview.scss"
+  },
+  {
+    "outputFile": "app2/gic_pages_wizard_releaseInfo.css",
+    "inputFile": "app2/gic_pages_wizard_releaseInfo.scss"
+  },
+  {
+    "outputFile": "app2/gic_style.css",
+    "inputFile": "app2/gic_style.scss"
+  },
+  {
+    "outputFile": "app2/gic_pages_home.css",
+    "inputFile": "app2/gic_pages_home.scss"
+  },
+  {
+    "outputFile": "app2/gic_pages_wizard_reports.css",
+    "inputFile": "app2/gic_pages_wizard_reports.scss"
+  },
+  {
+    "outputFile": "app2/gic_pages_wizard_meetings.css",
+    "inputFile": "app2/gic_pages_wizard_meetings.scss"
+  },
+  {
+    "outputFile": "app2/gic_pages_wizard_stakholder.css",
+    "inputFile": "app2/gic_pages_wizard_stakholder.scss"
+  },
+  {
+    "outputFile": "app2/gic_directives_gic-modal.css",
+    "inputFile": "app2/gic_directives_gic-modal.scss"
+  },
+  {
+    "outputFile": "app2/gic_directives_gic-wizard.css",
+    "inputFile": "app2/gic_directives_gic-wizard.scss"
+  }
+]

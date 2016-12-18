@@ -1,0 +1,65 @@
+﻿<form role="form">
+    <div class="row _no_margin_right_left form-group">
+        <div class="col-lg-5 col-md-5">
+            <label class="_label">Account Name</label>
+            <select class="form-control" ng-model="wizardVm.releaseData.accountID"
+                    ng-options="obj.value as obj.name for obj in  vm.data.accountsOptions"
+                    ng-change="vm.setReleaseTypesOptions()">
+                <option value="" ng-selected>Select Account</option>
+            </select>
+        </div>
+    </div>
+    <div class="row _no_margin_right_left form-group">
+        <div class="col-lg-5 col-md-5">
+            <label class="_label">Release Type</label>
+            <select class="form-control" ng-model="wizardVm.releaseData.releaseTypeID"
+                    ng-options="obj.value as obj.name for obj in  vm.data.releaseTypesOptions"
+                    ng-change="vm.setReleasesOptions()">
+                >
+                <option value="">Select Release Type</option>
+            </select>
+        </div>
+    </div>
+    <div class="row _no_margin_right_left form-group">
+        <div class="col-lg-5 col-md-5">
+            <label class="_label">Release Name</label>
+            <select class="form-control" ng-model="wizardVm.releaseData.releaseID"
+                    ng-options="obj.value as obj.name for obj in  vm.data.releasesOptions">
+                <option value="">Select Release</option>
+            </select>
+        </div>
+    </div>
+    <div class="row _no_margin_right_left form-group" ng-if="vm.data.ReleaseTypeOfleadSI==wizardVm.releaseData.releaseTypeID">
+        <div class="col-lg-5 col-md-5">
+            <label class="_label">Lead SI Release Name</label>
+            <input class="form-control" ng-model="wizardVm.releaseData.leadSIReleaseName" placeholder="Type Lead SI Release Name">
+        </div>
+    </div>
+    <div class="col-lg-7 col-md-7 _btn_parent2">
+        <label for="copyFromRelease" class="_label">
+            <input type="checkbox" name="criteria" id="copyFromRelease" class="_radio" ng-model="wizardVm.releaseData.copyFromRelease"
+                   ng-change="vm.copyFromReleaseChanged()">
+            &nbsp;Copy from Existing Release
+        </label>
+    </div>
+    <div class="row _no_margin_right_left form-group" ng-if="wizardVm.releaseData.copyFromRelease">
+        <div class="col-lg-5 col-md-5">
+            <label class="_label">Account Name</label>
+            <select class="form-control" ng-model="vm.data.copyFrom.accountID"
+                    ng-change="vm.setReleasesExists()"
+                    ng-options="obj.value as obj.name for obj in  vm.data.accountsExistsOptions">
+                <option value="">Select Account</option>
+            </select>
+        </div>
+    </div>
+    <div class="row _no_margin_right_left form-group" ng-if="wizardVm.releaseData.copyFromRelease">
+        <div class="col-lg-5 col-md-5">
+            <label class="_label">Release Name</label>
+            <select class="form-control" ng-model="vm.data.copyFrom.releaseID"
+                    ng-options="obj.value as obj.name for obj in  vm.data.releasesExistsOptions">
+                <option value="">Select Release Name</option>
+            </select>
+        </div>
+    </div>
+
+</form>

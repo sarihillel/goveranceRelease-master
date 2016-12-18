@@ -1,0 +1,49 @@
+﻿<!-- main container starts here -->
+<div class="container gicWizard">
+    <div class="row">
+        <div class="container _no_padding _container">
+            <nav class="_process_builder">
+                <ul class="nav nav-justified _process_bar">
+                    <li ng-repeat="step in ::wizardVm.steps track by $index" class="_align_center li{{$index+1}}" ng-class="{'_active': step.active}" ng-click="wizardVm.go($index)">
+                        <div ng-class="step.class">
+                            <span class="helper"></span>
+                        </div>
+                        <span class="_numbering">{{$index+1}}</span> <span class="_align_text">
+                            <span ng-bind-html="step.title"></span>
+                        </span>
+                    </li>
+                </ul>
+            </nav>
+            <div class="_sub_container _padding_15">
+                <div class="row _no_margin _padding_15 _paddingleft55">
+                    <div class="_btn_icons">
+                        <div class="_btn_icons_img">
+                            <span class="helper"></span><img class="saveIcon" height="30">
+                        </div>
+                        <div class="_btn_icons_img" ng-show="wizardVm.activeStep.export">
+                            <span class="helper"></span>
+                            <a href="javascript:;" class="_popover" popover-placement="bottom" popover-trigger="'mouseenter'" uib-popover="Export to Excel">
+                                <img class="exitIcon _pull_right" height="30">
+                            </a>
+                        </div>
+                    </div>
+
+                    <ui-view class="_border_bottom"></ui-view>
+
+                    <div class="sub_container_footer">
+                        <div class="row _no_margin _padding_15 _paddingleft55 form-group">
+                            <div class="_btn_parent">
+                                <button type="button" class="btn pull-right _next" ng-click="wizardVm.go(wizardVm.active+1)" ng-disabled="wizardVm.isStepDisable(wizardVm.active+1)" ng-show="wizardVm.active!=wizardVm.steps.length-1">NEXT</button>
+                                <button type="button" class="btn pull-right _next _pull_left" ng-click="wizardVm.go(wizardVm.active-1)" ng-show="wizardVm.active!=0">PREVIOUS</button>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</div>
+<!-- main container ends here -->

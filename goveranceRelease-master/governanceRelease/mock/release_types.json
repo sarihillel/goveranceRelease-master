@@ -1,0 +1,16 @@
+﻿{
+  "list": [
+    {
+      "sys_id": "1",
+      "u_type_name": "Transformation"
+    },
+    {
+      "sys_id": "2",
+      "u_type_name": "Ongoing CRs"
+    },
+    {
+      "sys_id": "3",
+      "u_type_name": "Lead SI"
+    }
+  ]
+}

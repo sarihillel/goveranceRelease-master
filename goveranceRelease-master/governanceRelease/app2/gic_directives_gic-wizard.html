@@ -1,0 +1,68 @@
+<!-- main container starts here -->
+<div class="container gicWizard">
+    <div class="row">
+        <div class="container _no_padding " ng-class="{'_container':!vm.transparent,'preview_container':vm.transparent}">
+            <nav class="_process_builder">
+                <ul class="nav nav-justified _process_bar">
+                    <li ng-repeat="step in vm.steps track by $index" class="_align_center li{{$index+1}}" ng-class="{'_active': step.active}" ng-click="vm.go($index)">
+                        <div ng-class="step.class">
+                            <span class="helper"></span>
+                        </div>
+                        <span class="_numbering">{{$index+1}}</span> <span class="_align_text">
+                            <span ng-bind-html="step.title"></span>
+                        </span>
+                    </li>
+                </ul>
+            </nav>
+            <div class="_sub_container" ng-class="{'_padding_15':!vm.transparent ,'transparent_container':vm.transparent}">
+                <div class="row _no_margin " ng-class="{'_padding_15 _paddingleft55':!vm.transparent,'_padding_left':vm.transparent }">
+                    <div class="_btn_icons">
+                        <div class="_btn_icons_img"
+                             ng-repeat="button in vm.topButtons"
+                             ng-show="button.isShow(vm.activeStep)"
+                             ng-disabled="button.isDisabled? false: button.isDisabled(vm.activeStep)">
+                            <span class="helper"></span>
+                            <a href="javascript:;" class="_popover" popover-placement="bottom" popover-trigger="'mouseenter'" uib-popover="{{button.title(vm.activeStep)}}">
+                                <img ng-class="button.class" height="30" ng-click="button.click()" />
+                            </a>
+                        </div>
+                        
+                    </div>
+                    <form role="form" name="form" class="form" novalidate="">
+                        <ui-view class="_border_bottom"></ui-view>
+                    </form>
+
+                    <div class="sub_container_footer">
+                        <div class="row _no_margin form-group" ng-class="{'_padding_15 _paddingleft55':!vm.transparent,'_padding_left':vm.transparent }">
+                            <div class="_btn_parent">
+                                <span class="text-danger text-left message-valid" ng-show="!vm.valid">Please fill all mandatory fields</span>
+                                <button type="button"
+                                        ng-repeat="button in vm.buttons"
+                                         ng-show="button.isShow(vm.activeStep,vm.active)"
+                                         ng-disabled="button.isDisabled? false: button.isDisabled(vm.activeStep)"
+                                         ng-click="button.click()" 
+                                        class="btn pull-right _next _margin_left">
+                                    <span gic-include-template="button.template"></span>
+                                </button>
+                                <button type="button" class="btn pull-right _next"
+                                        ng-click="vm.go(vm.active+1)"
+                                        ng-show="vm.active!=vm.stepsArray.length-1">
+                                    NEXT
+                                </button>
+                                <button type="button" class="btn pull-right _next _pull_left"
+                                        ng-click="vm.go(vm.active-1)"
+                                        ng-show="vm.active!=0">
+                                    PREVIOUS
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</div>
+<!-- main container ends here -->

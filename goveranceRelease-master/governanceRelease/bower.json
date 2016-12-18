@@ -1,0 +1,7 @@
+{
+  "name": "myproject",
+  "dependencies": {
+    "angular-filter": "~0.5.11",
+    "angularjs-toaster": "~2.1.0"
+  }
+}

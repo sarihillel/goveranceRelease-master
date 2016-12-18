@@ -1,0 +1,89 @@
+﻿@import "filesUrl.scss";
+
+.gicWizard {
+
+    .saveIcon {
+        content: url(#{$wizard_saveIcon});
+    }
+
+    .exitIcon {
+        content: url(#{$wizard_exitIcon});
+    }
+
+    .plusIcon {
+        content: url(#{$wizard_plusIcon});
+    }
+
+    .deleteIcon {
+        content: url(#{$wizard_deleteIcon});
+    }
+
+    ._btn_parent {
+        margin: 0;
+    }
+
+    ._btn_icons {
+        padding-right: 20px;
+    }
+
+    ._sub_container {
+        position: relative;
+        padding-bottom: 70px;
+    }
+
+    .sub_container_footer {
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        left: 5px;
+        padding: 1rem;
+        background-color: #efefef;
+        text-align: center;
+        height: 70px;
+    }
+
+    ._btn_icons_img .popover.fade.bottom {
+        border-radius: 0px;
+        background: #999 !important;
+        border: 0px;
+        font-size: 13px !important;
+
+        &.in {
+            background-color: '#999';
+            border-radius: 0px;
+        }
+    }
+
+
+    ._active {
+        &:after {
+            content: '';
+            width: 44%;
+            height: 3px;
+            position: absolute;
+            bottom: -9px;
+            left: 29%;
+        }
+
+
+        &.li1:after {
+            background: gray;
+        }
+
+        &.li2:after {
+            background: #759fbe;
+        }
+
+        &.li3:after {
+            background: #73c6f9;
+        }
+
+        &.li4:after {
+            background: #70d4e7;
+        }
+
+        &.li5:after {
+            background: #6dd9aa;
+        }
+    }
+}

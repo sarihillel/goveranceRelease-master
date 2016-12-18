@@ -1,0 +1,162 @@
+﻿{
+  "stakeholders": [
+    {
+      "u_stakeholder_role": "1",
+      "u_role_name": "Acceptance Test Manage",
+      "u_stakeholder_stream": 2,
+      "u_stream_order": 2,
+      "u_stream_name": "Stream Leads",
+      "u_stream_is_manual": 1,
+      "u_is_mandatory": true,
+      "u_order": 1
+    },
+    {
+      "u_stakeholder_role": "2",
+      "u_stream_name": "Program Management",
+      "u_stream_order": 2,
+      "u_stakeholder_stream": 1,
+      "u_role_name": "General Manager",
+      "u_stream_is_manual": 0,
+      "u_is_mandatory": true,
+      "u_order": 2
+    },
+    {
+      "u_stakeholder_role": "3",
+      "u_stream_name": "Program Management",
+      "u_stream_order": 1,
+      "u_stakeholder_stream": 1,
+      "u_role_name": "Program Manager",
+      "u_stream_is_manual": 0,
+      "u_is_mandatory": true,
+      "u_order": 1
+    }
+  ],
+  "proposed_reports": [
+    {
+      "u_proposed_report": "1",
+      "u_stream_name": "Development",
+      "u_stream_order": 2,
+      "u_report_stream": 7,
+      "u_order": "2",
+      "u_report_name": "Customer Weekly Status Report 2",
+      "u_is_required": "No",
+      "u_description": "Program status reports including executives summary!!!!",
+      "u_frequency": "1",
+      "u_frequncy_name": "Quaterly",
+      "u_project_phase": "1",
+      "u_project_phase_name": "Pre-Scope",
+      "u_report_owner": "1",
+      "u_report_recipients": [ "1", "2", "3" ],
+      "u_report_recipients_vendor": [ "1", "2", "3" ],
+      "u_template": "https://mail.google.com/mail/u/1/#inbox",
+      "u_comments": "this is my second comments"
+    },
+    {
+      "u_proposed_report": "2",
+      "u_stream_name": "Scoping",
+      "u_stream_order": 3,
+      "u_report_stream": "9",
+      "u_order": 3,
+      "u_report_name": "Customer Weekly Status Report 3",
+      "u_is_required": "No",
+      "u_description": "Program status reports including executives summary?",
+      "u_frequency": "1",
+      "u_frequncy_name": "Quaterly",
+      "u_project_phase": "1",
+      "u_project_phase_name": "Pre-Scope",
+      "u_report_owner": "1",
+      "u_report_recipients": [ "1", "2", "3" ],
+      "u_report_recipients_vendor": [ "1", "2", "3" ],
+      "u_template": "file:///C:/Users/Rivkia/Documents/goveranceRelease/Archive/proposed_reports.html",
+      "u_comments": "this is my third comments"
+    },
+    {
+      "u_proposed_report": "3",
+      "u_stream_name": "Other",
+      "u_stream_order": 4,
+      "u_report_stream": "11",
+      "u_order": 4,
+      "u_report_name": "Customer Weekly Status Report 4",
+      "u_is_required": "No",
+      "u_description": "Program status reports including executives summary?!",
+      "u_frequency": "1",
+      "u_frequncy_name": "Quaterly",
+      "u_project_phase": "1",
+      "u_project_phase_name": "Pre-Scope",
+      "u_report_owner": "1",
+      "u_report_recipients": [ "1", "2", "3" ],
+      "u_report_recipients_vendor": [ "1", "2", "3" ],
+      "u_template": "file:///C:/Users/Rivkia/Documents/goveranceRelease/Archive/proposed_reports.html",
+      "u_comments": "this is my third comments"
+    },
+    {
+      "u_proposed_report": "4",
+      "u_stream_name": "Development",
+      "u_stream_order": 2,
+      "u_report_stream": "7",
+      "u_order": 1,
+      "u_report_name": "Customer Weekly Status Report",
+      "u_is_required": "No",
+      "u_description": "Program status reports including executives summary",
+      "u_frequency": "1",
+      "u_frequncy_name": "Quaterly",
+      "u_project_phase": "1",
+      "u_project_phase_name": "Pre-Scope",
+      "u_report_owner": "1",
+      "u_report_recipients": [ "1", "2", "3" ],
+      "u_report_recipients_vendor": [ "1", "2", "3" ],
+      "u_template": "https://www.google.co.il/",
+      "u_comments": "this is my first comments"
+    }
+  ],
+  "proposed_meetings": [
+    {
+      "u_proposed_meeting": "1",
+      "u_meeting_name": "room1",
+      "u_order": 1,
+      "u_is_required": "No",
+      "u_agenda": "Program Priorities Major Discussion needed Program Risk",
+      "u_duration": "12",
+      "u_frequency": "1",
+      "u_frequncy_name": "Quaterly",
+      "u_project_phase": "1",
+      "u_project_phase_name": "Pre-Scope",
+      "u_report_owner": "1",
+      "u_report_recipients": [ "1", "2", "3" ],
+      "u_report_recipients_vendor": [ "1", "2", "3" ],
+      "u_comments": "this is first comment"
+    },
+    {
+      "sys_id": "2",
+      "u_proposed_meeting": "2",
+      "u_meeting_name": "room 2",
+      "u_order": 2,
+      "u_is_required": "No",
+      "u_agenda": "Program Priorities Major Discussion needed Program Risk!!!",
+      "u_duration": "20",
+      "u_frequency": "1",
+      "u_frequncy_name": "Quaterly",
+      "u_project_phase": "1",
+      "u_project_phase_name": "Pre-Scope",
+      "u_report_owner": "1",
+      "u_report_recipients": [ "1", "2", "3" ],
+      "u_report_recipients_vendor": [ "1", "2", "3" ],
+      "u_comments": "this is second comment"
+    },
+    {
+      "u_proposed_meeting": "3",
+      "u_meeting_name": "room 3",
+      "u_order": 3,
+      "u_is_required": "No",
+      "u_agenda": "Program Priorities Major Discussion needed Program Risk 3",
+      "u_duration": "50",
+      "u_frequency": "1",
+      "u_project_phase": "2",
+      "u_meeting_owner_stakeholder_id ": "1",
+      "u_meeting_invitiees_stakeholders": [ "2", "3" ],
+      "u_comments": "this is second comment"
+    }
+
+
+  ]
+}

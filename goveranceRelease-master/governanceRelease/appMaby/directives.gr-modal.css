@@ -1,0 +1,46 @@
+﻿.modal-backdrop {
+  z-index: 9999998 !important; }
+  .modal-backdrop + .gr-modal-window {
+    z-index: 9999999 !important; }
+
+.modal-dialog {
+  top: 60px; }
+
+@media (min-width: 900px) {
+  .modal-lg {
+    width: 850px;
+    min-height: 440px; } }
+
+.gr-modal-overlay {
+  /*position: fixed;*/
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 9999999;
+  /*margin-top: 25%;*/ }
+  .gr-modal-overlay .gr-modal-wrapper {
+    position: relative;
+    padding: 0;
+    overflow: auto;
+    margin: 0 auto; }
+    .gr-modal-overlay .gr-modal-wrapper .gr-modal-header {
+      height: 50px;
+      padding: 15px;
+      font-size: 20px;
+      text-transform: uppercase; }
+    .gr-modal-overlay .gr-modal-wrapper #mainDiv #content {
+      padding: 0px 0px 0px 15px; }
+    .gr-modal-overlay .gr-modal-wrapper label {
+      font-weight: normal; }
+    .gr-modal-overlay .gr-modal-wrapper #bottomDiv {
+      margin: 15px; }
+      .gr-modal-overlay .gr-modal-wrapper #bottomDiv #okCancelDiv {
+        float: right; }
+      .gr-modal-overlay .gr-modal-wrapper #bottomDiv button {
+        width: 82px;
+        height: 28px; }
+
+body.dark .gr-modal-overlay .gr-modal-wrapper #mainDiv #content #contentHeader {
+  color: #b8b9b9; }
+

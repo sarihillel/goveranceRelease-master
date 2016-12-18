@@ -1,0 +1,79 @@
+﻿<div class="gicWizardReleaseInfo ">
+    <div class="row _no_margin_right_left form-group">
+        <div class="col-lg-5 col-md-5">
+            <label class="_label">Account Name</label>
+            <select class="form-control" 
+                    ng-model="vm.gicReleaseData.u_account_dms"
+                    ng-options="key as value for (key , value) in  vm.data.accountsOptions"
+                    required=""
+                    ng-disabled="wizardVm.isPublished">
+                <option value="">Select Account</option>
+            </select>
+        </div>
+    </div>
+    <div class="row _no_margin_right_left form-group">
+        <div class="col-lg-5 col-md-5">
+            <label class="_label">Release Type</label>
+            <select class="form-control"
+                    ng-model="vm.gicReleaseData.u_release_type"
+                    required=""
+                    ng-disabled="wizardVm.isPublished || wizardVm.data.copyFrom.checked"
+                    ng-options="key as value for (key , value) in  vm.data.releaseTypesOptions">
+                <option value="">Select Release Type</option>
+            </select>
+        </div>
+    </div>
+    <div class="row _no_margin_right_left form-group" >
+        <div class="col-lg-5 col-md-5">
+            <label class="_label">Release Name</label>
+            <select class="form-control" 
+                    ng-model="vm.gicReleaseData.u_release_dms"
+                    required=""
+                    ng-disabled="wizardVm.isPublished"
+                    ng-options="key as value for (key , value) in  vm.data.releasesOptions">
+                <option value="">Select Release</option>
+            </select>
+        </div>
+    </div>
+    <div class="row _no_margin_right_left form-group" ng-if="vm.data.releaseTypeOfleadSI==vm.gicReleaseData.u_release_type">
+        <div class="col-lg-5 col-md-5">
+            <label class="_label">Lead SI Release Name</label>
+            <input class="form-control"
+                   required=""
+                   ng-disabled="wizardVm.isPublished"
+                   ng-model="vm.gicReleaseData.u_release_name"
+                   placeholder="Type Lead SI Release Name" />
+        </div>
+    </div>
+    <div class="col-lg-7 col-md-7 _btn_parent2" ng-show="!wizardVm.isPublished">
+        <label for="copyFromRelease" class="_label">
+            <input type="checkbox" name="criteria" id="copyFromRelease" class="_radio"
+                   ng-disabled="!vm.gicReleaseData.u_release_type"
+                   ng-model="wizardVm.data.copyFrom.checked"
+                   ng-change="vm.copyFromCheckedChanged()" />
+            <span>Copy from Existing Release  <small class="right">* from release type you choose</small></span>
+        </label>
+    </div>
+    <div class="row _no_margin_right_left form-group" ng-if="wizardVm.data.copyFrom.checked">
+        <div class="col-lg-5 col-md-5">
+            <label class="_label">Account Name</label>
+            <select class="form-control" ng-model="vm.data.copyFrom.u_account_dms"
+                    required="" 
+                    ng-change="vm.setGovernanceReleases();"
+                    ng-options="key as value for (key , value) in  vm.data.governanceAccountsOptions">
+                <option value="">Select Account</option>
+            </select>
+        </div>
+    </div>
+    <div class="row _no_margin_right_left form-group" ng-if="wizardVm.data.copyFrom.checked">
+        <div class="col-lg-5 col-md-5">
+            <label class="_label">Release Name</label>
+            <select class="form-control" ng-model="vm.data.copyFrom.selected"
+                    required=""
+                    ng-options="obj.u_release_name for obj in  vm.data.governanceReleasesOptions">
+                <option value="">Select Release Name</option>
+            </select>
+        </div>
+    </div>
+</div>
+ <gic-modal options="vm.modalOptions"></gic-modal>

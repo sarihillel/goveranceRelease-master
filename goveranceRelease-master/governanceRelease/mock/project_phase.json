@@ -1,0 +1,28 @@
+﻿{
+  "list": [
+    {
+      "sys_id": "1",
+      "u_project_phase_name": "Pre-Scope"
+    },
+    {
+      "sys_id": "2",
+      "u_project_phase_name": "Conception and initiation"
+    },
+    {
+      "sys_id": "3",
+      "u_project_phase_name": "Definition and planning"
+    },
+    {
+      "sys_id": "4",
+      "u_project_phase_name": "Launch or execution"
+    },
+     {
+      "sys_id": "5",
+      "u_project_phase_name": "Performance and control"
+    },
+     {
+      "sys_id": "6",
+      "u_project_phase_name": "Close"
+    }
+  ]
+}

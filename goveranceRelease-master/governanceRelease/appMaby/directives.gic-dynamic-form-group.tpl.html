@@ -1,0 +1,168 @@
+<div class="gic-dynamic-form-group-warp">
+    <form class="form-horizontal col-sm-12" ng-class="::options.cssForm" role="form" name="form">
+        <div class="row" ng-repeat="groupsOfFeilds in ::groups | chunkBy: options.chunkGroups:{} track by $index">
+            <div ng-init="group.expended=true"
+                 ng-class="::[group.IsExpandable?'expand-group':'', 'col-sm-' + chunkSm.group]"
+                 ng-repeat="group in ::groupsOfFeilds track by $index">
+                <div class="form-header">
+                    <i ng-if="::group.IsExpandable"
+                       ng-click="group.expended = !group.expended"
+                       ng-class="{'fa fa-sort-desc': group.expended, 'fa fa-caret-right ': !group.expended}"></i>
+                    <span class="group-title">{{::group.title }}</span>
+                </div>
+                <div class="row div-inputs" ng-show="group.expended">
+                    <div ng-repeat="field in group.fields |  defaults: { value: '',placeholder:'' } track by $index"
+                         ng-class="::'col-sm-' +(field.colSpan == undefinde ? chunkSm.field : chunkSm.field*field.colSpan)"
+                         ng-init="fieldSm=getFieldSm(field)">
+                        <div ng-switch="field.type">
+                            <div ng-switch-when-exp="INPUT_TYPES.STRING" class="form-group">
+                                <label ng-attr-for="{{::field.name + $index}}" ng-class="::fieldSm.labelSm" class="control-label">{{::field.title}}</label>
+                                <div ng-class="::fieldSm.inputSm">
+                                    <input type="text" ng-attr-placeholder="{{::field.placeholder}}"
+                                           ng-attr-id="{{::field.name + $index}}"
+                                           ng-attr-minlength="{{::field.minLength}}"
+                                           ng-attr-maxlength="{{::field.maxLength}}"
+                                           ng-model="field.value"
+                                           ng-model-options="{updateOn:'blur'}">
+                                </div>
+                            </div>
+                            <div ng-switch-when-exp="INPUT_TYPES.NUMBER" class="form-group">
+                                <label ng-attr-for="{{::field.name + $index}}" ng-class="::fieldSm.labelSm" class="control-label">{{::field.title }}</label>
+                                <div ng-class="::fieldSm.inputSm">
+                                    <input type="number"
+                                           ng-attr-id="{{::field.name + $index}}"
+                                           ng-attr-placeholder="{{::field.placeholder}}"
+                                           ng-attr-min="{{::field.min}}"
+                                           ng-attr-max="{{::field.max}}"
+                                           ng-model="field.value"
+                                           ng-model-options="{updateOn:'blur'}">
+                                </div>
+                            </div>
+                            <div ng-switch-when-exp="INPUT_TYPES.EMAIL" class="form-group">
+                                <label ng-attr-for="{{::field.name + $index}}" ng-class="::fieldSm.labelSm" class="control-label">{{::field.title }}</label>
+                                <div ng-class="::fieldSm.inputSm">
+                                    <input type="email"
+                                           ng-attr-id="{{::field.name + $index}}"
+                                           ng-attr-placeholder="{{::field.placeholder}}"
+                                           ng-model="field.value"
+                                           ng-model-options="{updateOn:'blur'}">
+                                </div>
+                            </div>
+                            <div ng-switch-when-exp="INPUT_TYPES.SELECT" class="form-group">
+                                <label ng-attr-for="{{::field.name + $index}}" ng-class="::fieldSm.labelSm" class="control-label">{{::field.title }}</label>
+                                <div ng-class="::fieldSm.inputSm">
+                                    <dropdown-list ng-attr-id="{{::field.name + $index}}"
+                                                   data-selected="field.value? field.options[field.value]:''">
+                                        <span ng-if="!field.required" ng-click="field.value=''; field.text='';"></span>
+                                        <span data-ng-repeat="(k,v) in field.options track by $index"
+                                              ng-init="currentField=$parent.field;  "
+                                              ng-click="currentField.value=k; currentField.text=v;">
+                                            <b ng-bind="v.trim()"></b>
+                                        </span>
+                                    </dropdown-list>
+                                </div>
+                            </div>
+                            <div ng-switch-when-exp="INPUT_TYPES.DATE_RANGE" class="form-group">
+                                <label ng-attr-for="{{::field.name + $index}}" ng-class="::fieldSm.labelSm" class="control-label">{{::field.title }}</label>
+                                <div ng-class="::fieldSm.inputSm"
+                                     ng-init="dateFrom=getDate(field.selected.from); dateTo=getDate(field.selected.to);">
+                                    <div class="dateRange">
+                                        <input type="text"
+                                               ng-attr-id="{{::field.name + $index}}"
+                                               pikaday="field.from"
+                                               default-date="{{::dateFrom.toString()}}"
+                                               set-default-date="true"
+                                               on-clear="field.selected.from=''"
+                                               on-select="field.selected.from = getDate(field.from.getDate())"
+                                               ou-input-date>
+
+                                        to
+
+                                        <input type="text"
+                                               ng-attr-id="{{::field.name+ 'To' + $index }}"
+                                               pikaday="field.to"
+                                               default-date="{{::dateTo.toString()}}"
+                                               set-default-date="true"
+                                               on-clear="field.selected.to=''"
+                                               on-select="field.selected.to = getDate(field.to.getDate())"
+                                               ou-input-date>
+
+
+                                    </div>
+                                </div>
+
+
+                            </div>
+                            <div ng-switch-when-exp="INPUT_TYPES.DATE" class="form-group">
+                                <label ng-attr-for="{{::field.name + $index}}" ng-class="::fieldSm.labelSm" class="control-label">{{::field.title }}</label>
+                                <div ng-class="::fieldSm.inputSm"
+                                     ng-init="defaultDate=getDate(field.value)">
+                                    <input type="text"
+                                           ng-attr-id="{{::field.name + $index}}"
+                                           pikaday="field.date"
+                                           default-date="{{::defaultDate.toString()}}"
+                                           set-default-date="true"
+                                           on-clear="field.value=''"
+                                           on-select="field.value = getDate(field.date.getDate())"
+                                           ou-input-date>
+                                </div>
+                            </div>
+
+                            <div ng-switch-when-exp="INPUT_TYPES.LABEL" class="form-group">
+                                <label ng-attr-for="{{::field.name + $index}}" ng-class="::fieldSm.labelSm" class="control-label">{{::field.title }}</label>
+                                <div class="control-label" ng-class="::fieldSm.inputSm">
+                                    <span ng-attr-id="{{::field.name + $index}}"
+                                          ng-init="field.state=false"
+                                          ng-show="!field.state"
+                                          ng-class="::field.cssClass">
+                                        {{field.filter? field.filter(field.value):field.value}}
+                                    </span>
+                                    <span ng-if="field.IsEditable">
+                                        <a n ng-click="field.state = !field.state" ng-show="!field.state">Edit</a>
+                                        <input type="text" ng-attr-placeholder="{{::field.placeholder}}"
+                                               ng-attr-id="{{::field.name + $index}}"
+                                               ng-attr-minlength="{{::field.minLength}}"
+                                               ng-attr-maxlength="{{::field.maxLength}}"
+                                               ng-model="field.value"
+                                               ng-show="field.state"
+                                               ng-model-options="{updateOn:'blur'}">
+                                    </span>
+                                </div>
+                            </div>
+
+                            <div ng-switch-when-exp="INPUT_TYPES.TEXTAREA" class="form-group">
+                                <label ng-attr-for="{{::field.name + $index}}" class="control-label col-sm-12">{{::field.title}}</label>
+                                <div class="col-sm-12">
+                                    <textarea ng-attr-placeholder="{{::field.placeholder}}" class="col-sm-12"
+                                              ng-attr-id="{{::field.name + $index}}"
+                                              ng-attr-minlength="{{::field.minLength}}"
+                                              ng-attr-maxlength="{{::field.maxLength}}"
+                                              ng-model="field.value"
+                                              rows="{{::field.rows}}"
+                                              ng-model-options="{updateOn:'blur'}"></textarea>
+                                </div>
+                            </div>
+                            <div ng-switch-when-exp="INPUT_TYPES.TIME" class="form-group">
+                                <label ng-attr-for="{{::field.name + $index}}" ng-class="::fieldSm.labelSm" class="control-label">{{::field.title }}</label>
+                                <div ng-class="::fieldSm.inputSm">
+                                    <input type="time"
+                                           ng-attr-id="{{::field.name + $index}}"
+                                           placeholder="HH:mm:ss"
+                                           ng-attr-minlength="{{::field.minLength}}"
+                                           ng-attr-maxlength="{{::field.maxLength}}"
+                                           ng-model="field.value"
+                                           ng-model-options="{updateOn:'blur'}">
+                                </div>
+                            </div>
+                            <div ng-switch-when-exp="INPUT_TYPES.GRID">
+                                <div ui-grid="::field.gridOptions" ui-grid-auto-resize ui-grid-resize-columns ui-grid-move-columns ui-grid-row-edit ui-grid-edit></div>
+                                <a ng-click="field.gridOptions.appScopeProvider.AddRow(field.gridOptions.name)">Add Row</a>
+                            </div>
+                           
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>

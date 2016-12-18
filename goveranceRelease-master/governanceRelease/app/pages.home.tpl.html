@@ -1,0 +1,34 @@
+﻿<!-- main container starts here -->
+<div class="_container_padding">
+    <div class="row _no_margin">
+        <h1 class="_heading_text">Create your release governance framework</h1>
+        <h4 class="_heading_text">In just a few steps and communicate to all stakeholders!</h4>
+    </div>
+</div>
+<div class="_container_white gicHome">
+    <div class="row _no_margin">
+        <div class="col-lg-2 col-md-2 col-sm-12 col-xs-12 col-md-offset-1 col-lg-offset-1">
+        </div>
+        <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12" ui-sref="wizard.releaseInfo({releaseID:0})">
+            <img class="addIcon" height="64">
+            <h4 class="_tabs_text">Create New Release</h4>
+        </div>
+        <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
+            <img class="searcIcon" height="64">
+            <img class="_search_file" height="64">
+            <h4 class="_tabs_text">Search Exisiting Release</h4>
+            <span class="inputAutoComplete">
+                <input type="text" ng-model="vm.releaseSelected" uib-typeahead="o as o.accountName +', '+o.releaseName for o in vm.getReleases($viewValue)"
+                       typeahead-loading="vm.loadingReleases" typeahead-no-results="vm.noResults"
+                       typeahead-min-length="0"
+                       typeahead-on-select="vm.goToRelease($item)"
+                       class="form-control _form-control" placeholder="Please type account or release name">
+                <i ng-show="vm.loadingLocations" class="glyphicon glyphicon-refresh"></i>
+                <div class="vm.noResults " ng-class="{'invisible': !noResults}">
+                    <span> <i class="glyphicon glyphicon-remove"></i> No Results Found</span>
+                </div>
+            </span>
+        </div>
+    </div>
+</div>
+<!-- main container ends here -->

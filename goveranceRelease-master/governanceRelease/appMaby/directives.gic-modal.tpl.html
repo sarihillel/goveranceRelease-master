@@ -1,0 +1,24 @@
+<script type="text/ng-template" id="gic-modal-template.html">
+    <div class="gic-modal-overlay" ng-show="showModal">
+        <div class="gic-modal-wrapper">
+            <div class="gic-modal-header">
+                <span ng-bind="::title"></span>
+                <button class="close" data-dismiss="modal" aria-label="Close" data-ng-click="cancel()">
+                    <i class="fa fa-times"></i>
+                </button>
+            </div>
+            <div id="mainDiv" class="clearfix">
+                <div id="content">
+                    <div gic-include-template="template" template-url="{{::templateUrl}}"></div>
+                </div>
+            </div> 
+            <div id="bottomDiv" class="clearfix">
+                <div id="okCancelDiv">
+                    <button id="cancelButton" class="cancel-button" ng-click="cancel()" ng-bind="::buttons.cancel"></button>
+                    <button id="okButton" class="ok-button" ng-click="ok()" ng-bind="::buttons.ok"></button>
+                </div>
+            </div>
+        </div>
+    </div>
+</script>
+<span ng-click="open()"><ng-transclude></ng-transclude></span>

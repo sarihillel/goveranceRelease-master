@@ -1,0 +1,26 @@
+﻿@import "filesUrl.scss";
+
+div.gicHome {
+
+    .addIcon {
+        content: url(#{$home_addIcon});
+    }
+
+    .searcIcon {
+        content: url(#{$home_searchIcon});
+    }
+
+    .inputAutoComplete {
+        li {
+            text-align: left;
+        }
+
+        .noResults {
+            color: #365379;
+            font-family: source-sans-extra-light;
+
+        }
+      
+    } 
+
+}

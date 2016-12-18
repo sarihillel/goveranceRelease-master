@@ -1,0 +1,131 @@
+﻿<div class="gicWizardProposedMeetings ">
+    <div class="row">
+        <div class="panel panel-default _bg_color">
+            <table class="table table-fixed">
+                <thead class="_margin_bottom_50">
+                    <tr>
+                        <th class="col-lg-2 col-md-2 col-xs-2">Meeting Name</th>
+                        <th class="col-lg-1 col-md-1 col-xs-1">Is Required?</th>
+                        <th class="col-lg-2 col-md-2 col-xs-2">Agenda</th>
+                        <th class="col-lg-1 col-md-1 col-xs-1">Duration</th>
+                        <th class="col-lg-1 col-md-1 col-xs-1">Frequency</th>
+                        <th class="col-lg-1 col-md-1 col-xs-1">Project Phase</th>
+                        <th class="col-lg-1 col-md-1 col-xs-1">Owner</th>
+                        <th class="col-lg-2 col-md-2 col-xs-2">Invites</th>
+                        <th class="col-lg-1 col-md-1 col-xs-1">Comments</th>
+                    </tr>
+                </thead>
+                <tbody class="no-float">
+                    <tr ng-repeat-start="meeting in vm.gicReleaseData.proposed_meetings |orderBy:'u_order'  track by $index">
+                        <td class="col-lg-2 col-md-2 col-xs-2">
+                            <input type="text" class="form-control" required="" ng-model="meeting.u_meeting_name" ng-disabled="wizardVm.isPublished" />
+                        </td>
+                        <td class="col-lg-1 col-md-1 col-xs-1">
+                            <select class="form-control" required="" 
+                                    ng-model="meeting.u_is_required"
+                                     ng-disabled="wizardVm.isPublished"
+                                     ng-options="key as value for (key , value) in  vm.isRequiredOptions"
+                                    >
+                            </select>
+                        </td>
+                        <td class="col-lg-2 col-md-2 col-xs-2">
+                            <textarea class="form-control _margin_bottom_5" required="" ng-model="meeting.u_agenda" ng-disabled="wizardVm.isPublished"></textarea>
+                        </td>
+                        <td class="col-lg-1 col-md-1 col-xs-1">
+                            <!--TODO: validation-->
+                            <input type="text" class="form-control"  ng-model="meeting.u_duration" ng-disabled="wizardVm.isPublished" />
+                        </td>
+                        <td class="col-lg-1 col-md-1 col-xs-1">
+                            <select class="form-control"
+                                    ng-model="meeting.u_frequency"
+                                    ng-change="meeting.u_frequncy_name=meeting.u_frequency?vm.data.frequenciesOptions[meeting.u_frequency]:''"
+                                    required=""
+                                    ng-disabled="wizardVm.isPublished"
+                                    ng-options="key as value for (key , value) in  vm.data.frequenciesOptions">
+                                <!--<option value="">Select Frequency</option>-->
+                            </select>
+                        </td>
+                        <td class="col-lg-1 col-md-1 col-xs-1">
+                            <select class="form-control"
+                                    ng-model="meeting.u_project_phase"
+                                    ng-change="meeting.u_project_phase_name=meeting.u_frequency?vm.data.projectPhasesOptions[meeting.u_project_phase]:''"
+                                    required=""
+                                    ng-disabled="wizardVm.isPublished"
+                                    ng-options="key as value for (key , value) in  vm.data.projectPhasesOptions">
+                                <!--<option value="">Select Project Phase</option>-->
+                            </select>
+                        </td>
+                        <td class="col-lg-1 col-md-1 col-xs-1">
+                            <ui-select ng-model="meeting.u_meeting_owner_temp"
+                                       theme="bootstrap"
+                                       reset-search-input="false"
+                                       class="inputAutoComplete _people_img"
+                                       required=""
+                                       ng-disabled="wizardVm.isPublished">
+                                <ui-select-match ng-attr-title="{{$select.selected.name}}">{{$select.selected.name}}</ui-select-match>
+                                <ui-select-choices repeat="item.sys_id as item in vm.stakeholdersOwnerSearch track by $index"
+                                                   refresh-delay="0" placeholder="Enter user name..">
+                                    <div ng-init="$select.activeIndex=item.sys_id==meeting.u_meeting_owner_temp?$index:$select.activeIndex"
+                                         ng-bind-html="item.name  | highlight: $select.search || $select.selected.name"></div>
+                                </ui-select-choices>
+                            </ui-select>
+                        </td>
+                        <td class="col-lg-2 col-md-2 col-xs-2">
+                            <ui-select ng-model="meeting.u_meeting_invitees_temp"
+                                       theme="bootstrap"
+                                       reset-search-input="false"
+                                       class="inputAutoComplete _people_img"
+                                       required=""
+                                       multiple=""
+                                       ng-disabled="wizardVm.isPublished">
+                                <ui-select-match placeholder="Enter user name.." ng-attr-title="{{$item.name}}">{{$item.name}}</ui-select-match>
+                                <ui-select-choices repeat="item.sys_id as item in vm.stakeholdersRecipientSearch track by $index"
+                                                   refresh-delay="0">
+                                    <div ng-bind-html="item.name  | highlight: $select.search"></div>
+                                </ui-select-choices>
+                            </ui-select>
+                        </td>
+                        <td class="col-lg-1 col-md-1 col-xs-1 div_popup">
+                            <div class="col-xs-6">
+                                <a href="javascript:;" class="_popup" popover-placement="bottom" popover-trigger="'outsideClick'" uib-popover-template="'gic-comment-template.html'">
+                                    <img class="commentIcon" width="35" />
+                                </a>
+                            </div>
+                            <div class="col-xs-6">
+                                <img class="deleteIcon del_img" ng-show="!meeting.u_proposed_meeting &amp;&amp; !wizardVm.isPublished" height="28" ng-click="vm.removeMeeting(meeting)" />
+                            </div>
+                        </td>
+                    </tr>
+                    <tr ng-repeat-end="">
+                        <td class="col-lg-12 col-md-12 col-xs-12 border-top"></td>
+                    </tr>
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <td class="col-lg-2 col-md-2 col-xs-2">
+                            <a href="javascript:;" ng-click="vm.addMeeting()" class="pull-left _color" ng-show="!wizardVm.isPublished">
+                                <img class="plusIcon _img" height="16" />
+                                Add Meeting
+                            </a>
+                        </td>
+                        <td class="col-lg-7 col-md-7 col-xs-7">&#32;</td>
+                        <td class="col-lg-3 col-md-3 col-xs-3 _no_padding"></td>
+                    </tr>
+                </tfoot>
+            </table>
+        </div>
+    </div>
+</div>
+
+
+
+<script type="text/ng-template" id="gic-comment-template.html">
+    <div id="popover_content_wrapper">
+        <textarea rows="4" class="form-control"
+                  style="width:auto !important;"
+                  ng-model="meeting.u_comments"
+                  ng-disabled="wizardVm.isPublished"
+                  ng-readonly="modalScope.isPublished"></textarea>
+        <!--<a href="javascript:;" class="_save">Save</a>-->
+    </div>
+</script>
